@@ -9,7 +9,7 @@ var map = new ol.Map({
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([-8585667.655339, 4699653.078035, -8576544.203966, 4712328.989602], map.getSize());
+map.getView().fit([-8585697.852730, 4697626.342622, -8576512.154310, 4714358.632974], map.getSize());
 
 ////small screen definition
     var hasTouchScreen = map.getViewport().classList.contains('ol-touch');
@@ -437,7 +437,7 @@ var Title = new ol.control.Control({
     element: (() => {
         var titleElement = document.createElement('div');
         titleElement.className = 'top-right-title ol-control';
-        titleElement.innerHTML = '<h2 class="project-title">Potential Locations</h2>';
+        titleElement.innerHTML = '<h2 class="project-title">Adaptive + Cargo Bikeshare</h2>';
         return titleElement;
     })(),
     target: 'top-right-container'
@@ -454,7 +454,7 @@ var Abstract = new ol.control.Control({
 
         var linkElement = document.createElement('a');
 
-        if (34 > 240) {
+        if (32 > 240) {
             linkElement.setAttribute("onmouseenter", "showAbstract()");
             linkElement.setAttribute("onmouseleave", "hideAbstract()");
             linkElement.innerHTML = 'i';
@@ -468,13 +468,13 @@ var Abstract = new ol.control.Control({
             window.showAbstract = function() {
                 linkElement.classList.remove("project-abstract");
                 linkElement.classList.add("project-abstract-uncollapsed");
-                linkElement.innerHTML = 'Adaptive and Cargo Bikeshare Pilot';
+                linkElement.innerHTML = 'Potential Pilot Rental Locations';
             }
 
             hideAbstract();
         } else {
             linkElement.classList.add("project-abstract-uncollapsed");
-            linkElement.innerHTML = 'Adaptive and Cargo Bikeshare Pilot';
+            linkElement.innerHTML = 'Potential Pilot Rental Locations';
         }
 
         titleElement.appendChild(linkElement);
