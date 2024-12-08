@@ -8,7 +8,7 @@ var wms_layers = [];
             
             
             source: new ol.source.XYZ({
-            attributions: ' &middot; <a href="https://cartodb.com/basemaps/">Map tiles by CartoDB, under CC BY 3.0. Data by OpenStreetMap, under ODbL.</a>',
+            attributions: ' &middot; <a href="https://cartodb.com/basemaps/">CartoDB, data by OpenStreetMap.</a>',
                 url: 'https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}@2x.png'
             })
         });
