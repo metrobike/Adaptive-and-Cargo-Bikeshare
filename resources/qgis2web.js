@@ -9,7 +9,7 @@ var map = new ol.Map({
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([-8585697.852730, 4697626.342622, -8576512.154310, 4714358.632974], map.getSize());
+map.getView().fit([-8590954.942243, 4696840.599884, -8573483.936675, 4711790.152016], map.getSize());
 
 ////small screen definition
     var hasTouchScreen = map.getViewport().classList.contains('ol-touch');
@@ -437,7 +437,7 @@ var Title = new ol.control.Control({
     element: (() => {
         var titleElement = document.createElement('div');
         titleElement.className = 'top-right-title ol-control';
-        titleElement.innerHTML = '<h2 class="project-title">Adaptive + Cargo Bikeshare</h2>';
+        titleElement.innerHTML = '<h2 class="project-title">Potential Pilot Locations</h2>';
         return titleElement;
     })(),
     target: 'top-right-container'
@@ -454,7 +454,7 @@ var Abstract = new ol.control.Control({
 
         var linkElement = document.createElement('a');
 
-        if (32 > 240) {
+        if (56 > 240) {
             linkElement.setAttribute("onmouseenter", "showAbstract()");
             linkElement.setAttribute("onmouseleave", "hideAbstract()");
             linkElement.innerHTML = 'i';
@@ -468,13 +468,13 @@ var Abstract = new ol.control.Control({
             window.showAbstract = function() {
                 linkElement.classList.remove("project-abstract");
                 linkElement.classList.add("project-abstract-uncollapsed");
-                linkElement.innerHTML = 'Potential Pilot Rental Locations';
+                linkElement.innerHTML = 'Arlington County Adaptive + Cargo Bikeshare Rental Sites';
             }
 
             hideAbstract();
         } else {
             linkElement.classList.add("project-abstract-uncollapsed");
-            linkElement.innerHTML = 'Potential Pilot Rental Locations';
+            linkElement.innerHTML = 'Arlington County Adaptive + Cargo Bikeshare Rental Sites';
         }
 
         titleElement.appendChild(linkElement);
@@ -886,7 +886,7 @@ if (elementToMove && parentElement) {
 var searchLayer = new SearchLayer({
     layer: lyr_PotentialLocation_2,
     colName: 'NAME',
-    zoom: 10,
+    zoom: 15,
     collapsed: true,
     map: map
 });

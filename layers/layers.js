@@ -24,7 +24,7 @@ var lyr_CountyBoundary_1 = new ol.layer.Vector({
                 source:jsonSource_CountyBoundary_1, 
                 style: style_CountyBoundary_1,
                 popuplayertitle: "County Boundary",
-                interactive: false,
+                interactive: true,
                 title: '<img src="styles/legend/CountyBoundary_1.png" /> County Boundary'
             });
 var format_PotentialLocation_2 = new ol.format.GeoJSON();
@@ -45,6 +45,10 @@ var lyr_PotentialLocation_2 = new ol.layer.Vector({
     <img src="styles/legend/PotentialLocation_2_1.png" /> Phase 2<br />\
     <img src="styles/legend/PotentialLocation_2_2.png" /> Phase 3 (Optional)<br />'
         });
+var group_Map = new ol.layer.Group({
+                                layers: [],
+                                fold: "open",
+                                title: "Map"});
 
 lyr_Basemap_0.setVisible(true);lyr_CountyBoundary_1.setVisible(true);lyr_PotentialLocation_2.setVisible(true);
 var layersList = [lyr_Basemap_0,lyr_CountyBoundary_1,lyr_PotentialLocation_2];
