@@ -9,7 +9,7 @@ var map = new ol.Map({
 });
 
 //initial view - epsg:3857 coordinates if not "Match project CRS"
-map.getView().fit([-8585676.231194, 4699077.539857, -8576535.104655, 4712905.272682], map.getSize());
+map.getView().fit([-8585667.655339, 4699653.078035, -8576544.203966, 4712328.989602], map.getSize());
 
 ////small screen definition
     var hasTouchScreen = map.getViewport().classList.contains('ol-touch');
@@ -437,7 +437,7 @@ var Title = new ol.control.Control({
     element: (() => {
         var titleElement = document.createElement('div');
         titleElement.className = 'top-right-title ol-control';
-        titleElement.innerHTML = '<h2 class="project-title">Potential Adaptive and Cargo Bikeshare Pilot Locations</h2>';
+        titleElement.innerHTML = '<h2 class="project-title">Potential Locations</h2>';
         return titleElement;
     })(),
     target: 'top-right-container'
@@ -445,6 +445,44 @@ var Title = new ol.control.Control({
 map.addControl(Title)
     
 //abstract
+
+var Abstract = new ol.control.Control({
+    element: (() => {
+        var titleElement = document.createElement('div');
+        titleElement.className = 'top-right-abstract ol-control';
+        titleElement.id = 'abstract';
+
+        var linkElement = document.createElement('a');
+
+        if (34 > 240) {
+            linkElement.setAttribute("onmouseenter", "showAbstract()");
+            linkElement.setAttribute("onmouseleave", "hideAbstract()");
+            linkElement.innerHTML = 'i';
+
+            window.hideAbstract = function() {
+                linkElement.classList.add("project-abstract");
+                linkElement.classList.remove("project-abstract-uncollapsed");
+                linkElement.innerHTML = 'i';
+            }
+
+            window.showAbstract = function() {
+                linkElement.classList.remove("project-abstract");
+                linkElement.classList.add("project-abstract-uncollapsed");
+                linkElement.innerHTML = 'Adaptive and Cargo Bikeshare Pilot';
+            }
+
+            hideAbstract();
+        } else {
+            linkElement.classList.add("project-abstract-uncollapsed");
+            linkElement.innerHTML = 'Adaptive and Cargo Bikeshare Pilot';
+        }
+
+        titleElement.appendChild(linkElement);
+        return titleElement;
+    })(),
+    target: 'top-right-container'
+});
+map.addControl(Abstract);
 
 
 //geolocate
@@ -848,7 +886,7 @@ if (elementToMove && parentElement) {
 var searchLayer = new SearchLayer({
     layer: lyr_PotentialLocation_2,
     colName: 'NAME',
-    zoom: 15,
+    zoom: 10,
     collapsed: true,
     map: map
 });
